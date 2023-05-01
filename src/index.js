@@ -49,6 +49,25 @@ activeStyle={{
 >
   login
 </NavLink>
+
+<NavLink to="/signup" exact
+style={linkstyles}
+activeStyle={{
+  background:"darkblue",
+}}
+>
+  signup
+</NavLink>
+
+ <NavLink to="/messages" exact
+ style={linkstyles}
+ activeStyles={{
+  background:"black",
+ }}
+ >
+  messages
+ </NavLink>
+
       </div>
     
   );
@@ -58,8 +77,29 @@ function Home() {
   return <h1>Home!</h1>;
 }
 
+function messages (){
+  return <div> className= hey i can code</div>;
+}
+
 function About() {
   return <h1>This is my about component!</h1>;
+}
+
+function signup() {
+  return (
+  <div>
+  <h1>Login</h1>
+  <form>
+    <div>
+      <input type="text" name="username" placeholder="Username" />
+    </div>
+    <div>
+      <input type="password" name="password" placeholder="Password" />
+    </div>
+    <input type="submit" value="Submit" />
+  </form>
+</div>
+);
 }
 
 function Login() {
@@ -80,12 +120,14 @@ function Login() {
 }
 ReactDOM.render(
   <BrowserRouter>
+  <NavBar/>
     <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/about" element={<About />} />
+      <Route path="/messages" element={<messages/>}/>
+      <Route path ="/signup"element={<signup />} />
       <Route path="/login" element={<Login />} />
     </Routes>
-    <NavBar/>
 
   </BrowserRouter>,
   document.getElementById("root")
